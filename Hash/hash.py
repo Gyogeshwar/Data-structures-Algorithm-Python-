@@ -14,5 +14,6 @@ class HashTable:
 
 
 my_hash_table =HashTable()
-
-my_hash_table.print_table()
+Hash_key = my_hash_table._hash("y")
+# my_hash_table.print_table()
+print(Hash_key)
