@@ -25,6 +25,15 @@ class Graph:
             except ValueError:
                 pass     
             return True
+        return False      
+
+    # remove vertex
+    def remove_vertex(self, vertex):
+        if vertex in self.adj_list.keys():
+            for other_verex in self.adj_list[vertex]:
+                self.adj_list[other_verex].remove(vertex)
+            del self.adj_list[vertex]
+            return True
         return False        
 
     def print_graph(self):
@@ -38,7 +47,8 @@ my_graph.add_vertex('C')
 my_graph.add_edge('A','B')
 my_graph.add_edge('B','C')
 my_graph.add_edge('C','A')
-my_graph.print_graph() 
-my_graph.remove_edge('A','B')
+my_graph.print_graph()
+my_graph.remove_vertex('C') 
+#my_graph.remove_edge('A','B')
 my_graph.print_graph()            
-my_graph.remove_edge('A','D')
+#my_graph.remove_edge('A','D')
