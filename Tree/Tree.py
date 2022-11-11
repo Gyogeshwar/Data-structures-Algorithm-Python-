@@ -1,13 +1,16 @@
 class Node:
+    # constructor
     def __init__(self, value):
         self.value = value
         self.right = None
         self.left = None
 
 class BinarySearchTree:
+    # constructor
     def __init__(self):
         self.root = None
 
+    # insert new node to tree
     def insert(self, value):
         new_node = Node(value)
         if self.root is None:
@@ -28,7 +31,7 @@ class BinarySearchTree:
                     return True
                 temp = temp.right 
 
-
+    # check value is present in tree or not
     def contains(self, value):
         if self.root is None:
             return False
@@ -41,7 +44,7 @@ class BinarySearchTree:
             else:
                 return True
         return False      
-
+    # minimum value in tree
     def minimum_Value(self, current_node):
         while current_node.left is not None:
             current_node = current_node.left
