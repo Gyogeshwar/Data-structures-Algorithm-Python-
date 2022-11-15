@@ -1,16 +1,18 @@
 class Node:
+    # constructor
     def __init__(self, value):
         self.value = value
         self.next = None
         self.prev = None
 
 class DoublyLinkedList:
+    # constructor
     def __init__(self,value):
         new_node = Node(value)
         self.head = new_node
         self.tail = new_node
         self.length = 1
-
+    # append the node to DLL
     def append(self, value):
         new_node = Node(value)
         if self.head is None:
@@ -22,7 +24,7 @@ class DoublyLinkedList:
             self.tail = new_node
         self.length += 1
         return True 
-
+    # prepend node to DLL
     def prepend(self, value):
         new_node = Node(value)
         if self.head is None:
@@ -34,7 +36,7 @@ class DoublyLinkedList:
             self.head = new_node
         self.length += 1
         return True
-
+    # insert bode in DLL
     def insert(self, index, value):
         new_node = Node(value)
         if index < 0 or index > self.length:
@@ -52,7 +54,7 @@ class DoublyLinkedList:
         new_node.next.prev = new_node
         self.length += 1
         return True        
-
+    # pop node from DLL
     def pop(self):
         if self.head is None:
             return None
@@ -66,7 +68,7 @@ class DoublyLinkedList:
             self.tail.next = None
         self.length -= 1
         return temp    
-
+    # pop node from DLL
     def pop_first(self):
         if self.head is None:
             return None
@@ -81,7 +83,7 @@ class DoublyLinkedList:
             self.head.prev = None
         self.length -= 1
         return temp    
-
+    # remove node from DLL
     def remove(self, index):
         if index < 0 or index > self.length-1:
             return False
@@ -97,7 +99,7 @@ class DoublyLinkedList:
         self.length -= 1
         return temp
              
-
+    # get value at from perticular index
     def get(self, index):
         if index < 0 or index >= self.length:
             return None
@@ -110,14 +112,14 @@ class DoublyLinkedList:
             for i in range(self.length - 1, index, -1):
                 temp= temp.prev        
         return temp 
-
+    # set value of perticular node
     def set_value(self, index, value):
         temp = self.get(index)
         if temp:
             temp.value = value
             return True
         return False               
-
+    # print list
     def print_list(self):
         temp = self.head
         while temp is not None:
